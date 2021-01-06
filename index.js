@@ -5,14 +5,13 @@ import config from "./config.json";
 import _ from "underscore";
 import { DialogComponent } from "@syncfusion/ej2-react-popups";
 import $ from "jquery";
-// import QuestionAnswers from "./quizQuestionsAnswers.json";
+import QuestionAnswers from "./quizQuestionsAnswers.json";
 // import quizQuestionsAnswers from "./quizQuestionsAnswers.json";
 
 // let effects = ['Zoom', 'FlipXDown', 'FlipXUp', 'FlipYLeft', 'FlipYRight']
 let effects = ["Zoom"];
 class App extends Component {
   constructor() {
-    console.log("in constructoe", quizQuestionsAnswers);
     super();
     this.state = {
       name: "React",
@@ -28,6 +27,9 @@ class App extends Component {
           this.dialogClose();
         },
         buttonModel: { content: "Done", isPrimary: true }
+      },
+      {
+        buttonModel: { content: "Correct", isPrimary: false }
       }
     ];
     this.seconds = 0;
@@ -35,7 +37,6 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    console.log("in did mount");
     var that = this;
     // $.ajax({
     //   url:
@@ -62,9 +63,7 @@ class App extends Component {
     //   $("#mins").html(that.minutes);
     // }, 60000);
   };
-  handleResponse = arg => {
-    console.log("result", arg);
-  };
+  handleResponse = arg => {};
   createCountObj = () => {
     let count = config.count;
     let result = [];
@@ -89,7 +88,6 @@ class App extends Component {
     this.animationSettings.effect = _.sample(effects);
   }
   renderButtons = () => {
-    console.log("in render buttons");
     return (
       <div style={{ textAlign: "center" }}>
         {this.state.quiz.map((val, index) => {
@@ -113,7 +111,6 @@ class App extends Component {
 
   handleButtonClick = arg => {
     let { id } = arg;
-    console.log("open modal window");
     this.setState({
       activeId: id,
       showDialog: true

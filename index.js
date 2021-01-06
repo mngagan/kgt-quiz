@@ -29,6 +29,9 @@ class App extends Component {
         buttonModel: { content: "Done", isPrimary: true }
       },
       {
+        click: () => {
+          this.dialogClose();
+        },
         buttonModel: { content: "Correct", isPrimary: false }
       }
     ];

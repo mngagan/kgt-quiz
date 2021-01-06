@@ -7,6 +7,7 @@
     "@syncfusion/ej2-react-popups": "18.1.53",
     "bulma": "0.7.1",
     "jquery": "3.5.1",
+    "json-loader": "^0.5.7",
     "list-react-files": "0.2.0",
     "react": "16.1.1",
     "react-dom": "16.1.1",
